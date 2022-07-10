@@ -60,10 +60,27 @@ position = Vector2( 360, -56 )
 position = Vector2( 377, 86 )
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
+collision_layer = 3
+collision_mask = 7
 tile_data = PoolIntArray( -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -196619, 0, 0, -262128, 0, 0, -131083, 0, 0, -131082, 0, 0, -196592, 0, 0, -65547, 0, 0, -65546, 0, 0, -65543, 0, 0, -65542, 0, 0, -131057, 0, 0, -131056, 0, 0, -11, 0, 0, -10, 0, 0, -7, 0, 0, -6, 0, 0, -3, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0 )
+
+[node name="DefaultMech2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 992, -128 )
+parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
+volume_of_parts_dropped = 2.0
 
 [node name="DefaultMech" parent="." instance=ExtResource( 6 )]
 position = Vector2( -160, -64 )
+parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
+volume_of_parts_dropped = 8.0
+
+[node name="DefaultMech3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 264, 0 )
+parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
+volume_of_parts_dropped = 3.0
+
+[node name="DefaultMech4" parent="." instance=ExtResource( 6 )]
+position = Vector2( -416, -128 )
 parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
 
 [editable path="Player"]

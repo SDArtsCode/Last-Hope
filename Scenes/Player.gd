@@ -1,8 +1,8 @@
 extends Entity2D
 
-export (int) var speed = 400
-export (int) var jump_speed = -1600
-export (int) var gravity = 5200
+export (int) var speed = 600
+export (int) var jump_speed = -1700
+export (int) var gravity = 3000
 export (int) var friction = 0.1
 export (int) var acceleration = 0.5
 

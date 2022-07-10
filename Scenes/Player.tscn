@@ -37,9 +37,14 @@ position = Vector2( 1, -1 )
 shape = SubResource( 1 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 4 )]
-fire_rate = 0.1
-magazine_size = 10000
-bullet_speed = 80
+fire_rate = 0.08
+magazine_size = 42
+damage = 10
+bullet_speed = 100
+min_accuracy = 1.0
+accuracy_decrease = 0.2
+max_accuracy = 6.0
+accuracy_increase_delay = 0.4
 shoot_pos_path = NodePath("../AimPosition")
 
 [node name="AimPosition" type="Position2D" parent="Player"]

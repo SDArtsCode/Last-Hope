@@ -6,11 +6,18 @@ export (int) var magazine_size = 30
 export (float) var reload_time = 1
 export (int) var damage = 15
 export (int) var bullet_speed = 40
+# This is the least amount of random variance a bullet will have
 export (float) var min_accuracy = 4
+# this is the rate per SHOT that the weapon gets less accurate after firing
 export (float) var accuracy_decrease = 1
+# this is the rate per SECOND that the weapon becomes more accurate after the 
+# weapon has stopped firing and the accuracy_increase_delay has completed
 export (float) var accuracy_increase = 0.1
+# this is the most amount of random variance a bullet will have
 export (float) var max_accuracy = 10
+# this is the delay before the accuracy increases again
 export (float) var accuracy_increase_delay = 0.2
+# procedural shotguns?????? This var might not work with current collision layers because bullets probably collide with themselves.
 export (int, 1, 10) var bullet_per_shot = 1
 
 var bullet = Global.BULLET_PRELOAD

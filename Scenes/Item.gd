@@ -4,13 +4,6 @@ class_name Item2D
 
 export var item_name = ""
 export (bool) var collected = false
-#const GRAVITY = Vector2(0, 100)
-#var velocity = Vector2()
-#
-#func _process(delta):
-#	velocity += GRAVITY * delta 
-#	position += velocity * delta
-#
 
 func _ready() -> void:
 	$Label.hide()

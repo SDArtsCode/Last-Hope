@@ -16,8 +16,8 @@ colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.137255 )
 [node name="Bullet" type="KinematicBody2D"]
 z_index = 20
 z_as_relative = false
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

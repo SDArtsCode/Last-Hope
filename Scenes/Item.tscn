@@ -1,17 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Item.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/hover.gd" type="Script" id=3]
 
+[sub_resource type="PhysicsMaterial" id=5]
+friction = 0.6
+bounce = 0.4
+
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1, 0 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.616, 27.7318 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
+loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 1
@@ -26,7 +31,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "hover"
 length = 4.0
-loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:y")
 tracks/0/interp = 1
@@ -39,11 +43,15 @@ tracks/0/keys = {
 }
 
 [node name="Item" type="RigidBody2D"]
-mode = 2
+collision_layer = 4
+collision_mask = 0
+physics_material_override = SubResource( 5 )
+gravity_scale = 2.4
+linear_damp = 0.1
+angular_damp = 0.1
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 28 )
 shape = SubResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -53,7 +61,6 @@ position = Vector2( 0.384003, -0.26815 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -10.614 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 

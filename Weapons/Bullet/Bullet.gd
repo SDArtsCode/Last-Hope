@@ -14,8 +14,9 @@ func _physics_process(delta):
 		var _movement = move_and_slide(direction * speed * delta, Vector2.UP, false, 4, PI/4, false)
 	if get_slide_count() > 0:
 		var collision = get_slide_collision(0)
-		if collision.collider.is_in_group("Damage"):
-			collision.collider.damage(damage, collision.position)
+		if collision.collider.is_in_group("entity"):
+			collision.collider.damage(damage)
 		queue_free()
 	if (global_position - initial_position).length() > 2000:
 		queue_free()
+	
