@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 937.0
+margin_top = 8.0
+margin_right = 1013.0
+margin_bottom = 34.0
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
