@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+class_name Item2D
+
 export var item_name = ""
 export (bool) var collected = false
 #const GRAVITY = Vector2(0, 100)

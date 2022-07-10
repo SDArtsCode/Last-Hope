@@ -20,6 +20,9 @@ var items: Dictionary = {
 	"energy_core": {"name": "Energy Core", "volume": 4.0, "stored": 0},
 	"blueprint": {"name": "Blueprint", "volume": 0.1, "stored": 0, "type": []}} # This should be last
 
+const ITEM_PRELOAD = preload("res://Scenes/Item.tscn")
+const BULLET_PRELOAD = preload("res://Weapons/Bullet/Bullet.tscn")
+
 func change_item_count(item: String, change: int):
 	if curr_inventory + items[item]["volume"] * change <= max_inventory and items[item]["stored"] + change >= 0:
 		items[item]["stored"] += change

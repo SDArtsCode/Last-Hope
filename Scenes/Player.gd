@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Entity2D
 
 export (int) var speed = 400
 export (int) var jump_speed = -1600
@@ -34,12 +34,24 @@ func get_input():
 		
 	elif dir == 0:
 		velocity.x = lerp (velocity.x, 0, friction)
-		
+	
+	# weapon shid
+	if Input.is_action_just_pressed("reload"):
+		$Weapon.reload()
+	if $Weapon.automatic:
+		if Input.is_action_pressed("shoot"):
+			$Weapon.fire()
+	else:
+		if Input.is_action_just_pressed("shoot"):
+			$Weapon.fire()
+	$AimPosition.position = (get_local_mouse_position()).normalized() * 64
+	$Weapon.shoot_dir = get_global_mouse_position() - global_position
+	
 func _physics_process(delta: float) -> void:
 	
 	get_input()
 	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move(velocity, delta)
 	velocity.x = lerp(velocity.x, 0, 0.2)
 	
 	if Input.is_action_just_pressed("jump") and can_move:
