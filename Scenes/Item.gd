@@ -1,28 +1,29 @@
-extends Node2D
+extends RigidBody2D
 
-export (int) var weight = 0
 export var item_name = ""
 export (bool) var collected = false
-
+#const GRAVITY = Vector2(0, 100)
+#var velocity = Vector2()
+#
+#func _process(delta):
+#	velocity += GRAVITY * delta 
+#	position += velocity * delta
+#
 
 func _ready() -> void:
-	$Item/Label.hide()
+	$Label.hide()
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	$Item/Label.show()
+	$Label.show()
 
 
 func _on_Area2D_body_exited(body: Node) -> void:
-	$Item/Label.hide()
+	$Label.hide()
 
 func _physics_process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("collect"):
-		Global.item_collected = true
 		var bodies = $Area2D.get_overlapping_bodies()
 		for b in bodies:
-			if b.name == "Player":
+			if b.name == "Player" and Global.change_item_count(item_name, 1):
 				self.queue_free()
-				Global.item_name = item_name
-				Global.item_weight = weight
 	
