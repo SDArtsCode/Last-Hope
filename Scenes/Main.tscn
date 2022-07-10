@@ -1,15 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/daynight.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 536, 58 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="daynight" type="CanvasModulate" parent="."]
+color = Color( 0.168627, 0, 0.14902, 1 )
+script = ExtResource( 5 )
+cycle_len = 120.0
+colors = [ Color( 0.168627, 0, 0.14902, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.168627, 0.00392157, 0.00392157, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.101961, 0.0352941, 0.0941176, 1 ), Color( 0.168627, 0, 0.14902, 1 ) ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -134, 8 )
