@@ -6,8 +6,6 @@ export (float, 0.0, 20.0) var volume_of_parts_dropped = 4.0
 var cur_vol_of_parts : float = 0.0
 var cur_parts_to_drop : Array
 
-const MAX_DROP_SPEED : float = 400.0
-
 func _ready():
 	randomize()
 	connect("OnEntityDead", self, "Entity2D_OnEntityDead")
@@ -26,5 +24,5 @@ func Entity2D_OnEntityDead():
 		new_item.item_name = item_name
 		get_tree().get_current_scene().add_child(new_item)
 		new_item.global_position = global_position
-		new_item.apply_central_impulse(Vector2((randf() - 0.5) * 0.5 * MAX_DROP_SPEED, -(randf()) * 0.5 * MAX_DROP_SPEED))
+		new_item.apply_central_impulse(Vector2((randf() - 0.5) * 400, -150-(randf()) * 200))
 	queue_free()

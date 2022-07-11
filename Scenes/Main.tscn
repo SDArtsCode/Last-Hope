@@ -23,6 +23,8 @@ item_name = "scrap"
 
 [node name="Item9" parent="." instance=ExtResource( 3 )]
 position = Vector2( 465, -222 )
+gravity_scale = 3.2
+linear_damp = 0.2
 item_name = "scrap"
 
 [node name="Item2" parent="." instance=ExtResource( 3 )]
