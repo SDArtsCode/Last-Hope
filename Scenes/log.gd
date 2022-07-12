@@ -6,7 +6,7 @@ func _ready():
 
 
 func Update(info: String, color: String):
-	bbcode_text = "[color=" + color + "]" + info + "[/color]"
+	bbcode_text = "[color=" + color + "]" + info + "[/color]" 
 	$flash.stop()
 	$flash.play("falsh")
 	if color != "yellow":

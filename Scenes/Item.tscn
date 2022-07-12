@@ -41,7 +41,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 4 )
 }
 
-[node name="Item" type="RigidBody2D"]
+[node name="Item" type="RigidBody2D" groups=["Item"]]
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource( 5 )
@@ -53,9 +53,9 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ItemArea" type="Area2D" parent="." groups=["Item"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
 position = Vector2( 0.384003, -0.26815 )
 shape = SubResource( 1 )
 
@@ -79,5 +79,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="ItemArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="ItemArea" to="." method="_on_Area2D_body_exited"]

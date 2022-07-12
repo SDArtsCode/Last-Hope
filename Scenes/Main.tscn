@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Environment/TestMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,15 +6,15 @@
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/daynight.gd" type="Script" id=5]
 [ext_resource path="res://Entities/DefaultMech/DefaultMech.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/BunkerEntrance.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/transition.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="daynight" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.168627, 0, 0.14902, 1 )
 script = ExtResource( 5 )
-cycle_len = 120.0
 colors = [ Color( 0.168627, 0, 0.14902, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.168627, 0.00392157, 0.00392157, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.101961, 0.0352941, 0.0941176, 1 ), Color( 0.168627, 0, 0.14902, 1 ) ]
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
@@ -38,6 +38,17 @@ item_name = "energy_core"
 [node name="Item3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 172, -60 )
 item_name = "blueprint"
+blueprint = "chainsaw"
+
+[node name="Item10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 575, -53 )
+item_name = "blueprint"
+blueprint = "plasma_sword"
+
+[node name="Item11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 705, -137 )
+item_name = "blueprint"
+blueprint = "laser"
 
 [node name="Item4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 496, -57 )
@@ -84,6 +95,11 @@ volume_of_parts_dropped = 3.0
 [node name="DefaultMech4" parent="." instance=ExtResource( 6 )]
 position = Vector2( -416, -128 )
 parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
+
+[node name="Bunker" parent="." instance=ExtResource( 7 )]
+position = Vector2( 832, 0 )
+
+[node name="transition" parent="." instance=ExtResource( 8 )]
 
 [editable path="Player"]
 [editable path="Player/Player/Camera2D/UI"]
