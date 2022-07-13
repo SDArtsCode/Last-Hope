@@ -30,6 +30,7 @@ func get_input():
 		facing_left = true
 		velocity.x -= speed
 		dir -= 1
+			
 	
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
@@ -93,5 +94,7 @@ func _input(event):
 	if event.is_action_pressed("jump") and can_move and can_jump:
 		if is_on_floor():
 			velocity.y = jump_speed
+	
+		
 
 
