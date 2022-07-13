@@ -16,5 +16,6 @@ func _process(_delta):
 	add_point(point)
 	while get_point_count() > trailLength:
 		remove_point(0)
+	
 	pass
 

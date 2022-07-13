@@ -12,10 +12,8 @@
 script = ExtResource( 4 )
 
 [node name="daynight" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.168627, 0, 0.14902, 1 )
 script = ExtResource( 5 )
-cycle_len = 120.0
 colors = [ Color( 0.168627, 0, 0.14902, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.168627, 0.00392157, 0.00392157, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.101961, 0.0352941, 0.0941176, 1 ), Color( 0.168627, 0, 0.14902, 1 ) ]
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
@@ -39,6 +37,17 @@ item_name = "energy_core"
 [node name="Item3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 172, -60 )
 item_name = "blueprint"
+blueprint = "chainsaw"
+
+[node name="Item10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 575, -53 )
+item_name = "blueprint"
+blueprint = "plasma_sword"
+
+[node name="Item11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 705, -137 )
+item_name = "blueprint"
+blueprint = "laser"
 
 [node name="Item4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 496, -57 )

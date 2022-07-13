@@ -27,7 +27,5 @@ func _process(delta):
 		rgb_curr[0] += rgb_delta[0]
 		rgb_curr[1] += rgb_delta[1]
 		rgb_curr[2] += rgb_delta[2]
-		# sry brenden im commenting this out + ratio
-		# print(rgb_curr)
 		color = Color(rgb_curr[0], rgb_curr[1], rgb_curr[2])
 	
