@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex"
+path="res://.import/Dtestmiddke.png-0c49c61a61450f0adf9887291d90cd4c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/BasicTile.png"
-dest_files=[ "res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex" ]
+source_file="res://Art/Backgrounds/Dtestmiddke.png"
+dest_files=[ "res://.import/Dtestmiddke.png-0c49c61a61450f0adf9887291d90cd4c.stex" ]
 
 [params]
 

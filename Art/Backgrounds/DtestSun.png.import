@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex"
+path="res://.import/DtestSun.png-6ffce9a85f8d237bb63dc152a4605600.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/BasicTile.png"
-dest_files=[ "res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex" ]
+source_file="res://Art/Backgrounds/DtestSun.png"
+dest_files=[ "res://.import/DtestSun.png-6ffce9a85f8d237bb63dc152a4605600.stex" ]
 
 [params]
 
