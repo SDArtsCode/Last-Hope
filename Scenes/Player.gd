@@ -40,9 +40,11 @@ func get_input():
 	
 	
 	#@ greg here \/
-	match Global.player_parts["primary_arm"]:
+	print(Global.player_parts["primary_arm"])
+	match Global.blueprints[Global.player_parts["primary_arm"]]["stats"]["type"]:
 		# Global.blueprints[blueprint]["stats"][<value>] to make your guns work with every one of that type, next to each case is a list of all the values you have avalable 
 		"basic_gun": #{"type": "basic_gun", "damage": 5, "shoot_speed": 1.0, "shots_per_click": 4, "spacing": 0.1} (spacing is time between each bullet in a click)
+			print("hii")
 			if Input.is_action_just_pressed("reload"):
 				$Weapon.reload()
 #			if $Weapon.automatic: no weapons are auto
