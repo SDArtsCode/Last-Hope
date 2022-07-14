@@ -20,7 +20,6 @@ func _ready():
 func get_input():
 	velocity.x = 0
 	var dir = 0
-	
 	if Input.is_action_pressed("right") and can_move:
 		facing_left = false
 		velocity.x += speed
@@ -36,7 +35,7 @@ func get_input():
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
 		
 	elif dir == 0:
-		velocity.x = lerp (velocity.x, 0, friction)
+		velocity.x = lerp(velocity.x, 0, friction)
 	
 	
 	
@@ -79,7 +78,15 @@ func _input(event):
 					Global.change_item_count("blueprint", -1)
 					Global.blueprints[Global.items["blueprint"]["type"][blueprint]]["has_blueprint"] = true
 					print("added blueprint ", Global.items["blueprint"]["type"][blueprint])
+					
+				for item in Global.items.keys():
+					if item != "blueprint":
+						Global.items[item]["bunker"] += Global.items[item]["stored"]
+						print("bunkered ", Global.items[item]["stored"], " ", item)
+						Global.items[item]["stored"] = 0
+				
 				can_move = false
+				Global.inventory_controller.update_inventory()
 				Global.transition()
 				Global.root.save_scene()
 				yield(get_tree().create_timer(1.0), "timeout")

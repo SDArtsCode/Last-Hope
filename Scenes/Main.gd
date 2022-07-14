@@ -2,7 +2,7 @@ extends Node2D
 
 # run resets wen the player exits the bunker here
 func _ready():
-	$daynight.time = 0
+	Global.time = 0
 	Global.root = self
 	Global.transition()
 

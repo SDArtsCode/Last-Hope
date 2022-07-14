@@ -8,23 +8,30 @@ var inventory_controller: Node
 
 var info_log: Node
 
+var outfitting_menu: Node
+
 var transition_nodes: Array
+
+var time: float = 0.0
+const CYCLE_LEN: float = 15.0
 
 var curr_inventory: float = 0.0
 
 var selected = -1
+var entered = false
+var can_enter = false
 
 var blueprint_up = false
 
 const COST_KEY = ["scrap", "power_cell", "wiring", "sensor", "energy_core"]
 
 var items: Dictionary = {
-	"scrap": {"name": "Scrap", "volume": 0.2, "stored": 0},
-	"power_cell": {"name": "Power Cell", "volume": 1.0, "stored": 0},
-	"wiring": {"name": "Wiring", "volume": 0.1, "stored": 0},
-	"sensor": {"name": "Sensor", "volume": 3.0, "stored": 0},
-	"energy_core": {"name": "Energy Core", "volume": 4.0, "stored": 0},
-	"blueprint": {"name": "Blueprint", "volume": 0.1, "stored": 0, "type": []} # This should be last
+	"scrap": {"name": "Scrap", "volume": 0.2, "stored": 0, "bunker": 1},
+	"power_cell": {"name": "Power Cell", "volume": 1.0, "stored": 0, "bunker": 1},
+	"wiring": {"name": "Wiring", "volume": 0.1, "stored": 0, "bunker": 1},
+	"sensor": {"name": "Sensor", "volume": 3.0, "stored": 0, "bunker": 1},
+	"energy_core": {"name": "Energy Core", "volume": 4.0, "stored": 0, "bunker": 1},
+	"blueprint": {"name": "Blueprint", "volume": 0.1, "stored": 0, "bunker": "fuck", "type": []} # This should be last
 } 
 
 var blueprints: Dictionary = {
@@ -61,15 +68,15 @@ var blueprints: Dictionary = {
 	"dash": {"stats": {"type": "dash"}, "name": "Dash Leg Module", "has_blueprint": false, "cost": [15, 1, 2, 0, 0], "discription": "Allows the user to dash"},
 	
 	# upgrades
-	"battery": {"stats": {"type": "upgrade", "effect": 100, "max": 5}, "name": "Battery Capacity", "has_blueprint": true, "cost": [0, 0, 2, 0, 1], "discription": "Increases battery capacity"},
-	"speed": {"stats": {"type": "upgrade", "effect": 100, "max": 3}, "name": "Speed", "has_blueprint": true, "cost": [10, 2, 2, 0, 0], "discription": "Increases movement speed, with no cost to battery"},
-	"storage": {"stats": {"type": "upgrade", "effect": 10, "max": 5}, "name": "Storage Space", "has_blueprint": true, "cost": [20, 0, 2, 1, 0], "discription": "Increases storage space"},
-	"health": {"stats": {"type": "upgrade", "effect": 50, "max": 5}, "name": "Armor", "has_blueprint": true, "cost": [30, 0, 0, 0, 0], "discription": "Increases hipoints"}
+	"battery": {"stats": {"type": "upgrade", "effect": 100, "baseval": 100, "max": 5}, "name": "Battery Capacity", "has_blueprint": true, "cost": [0, 0, 2, 0, 1], "discription": "Increases battery capacity"},
+	"speed": {"stats": {"type": "upgrade", "effect": 100, "baseval": 200, "max": 3}, "name": "Speed", "has_blueprint": true, "cost": [10, 2, 2, 0, 0], "discription": "Increases movement speed, with no cost to battery"},
+	"storage": {"stats": {"type": "upgrade", "effect": 10, "baseval": 10, "max": 5}, "name": "Storage Space", "has_blueprint": true, "cost": [20, 0, 2, 1, 0], "discription": "Increases storage space"},
+	"health": {"stats": {"type": "upgrade", "effect": 50, "baseval": 100, "max": 5}, "name": "Armor", "has_blueprint": true, "cost": [30, 0, 0, 0, 0], "discription": "Increases hipoints"}
 }
 
 var player_parts: Dictionary = {
-	"module": "",
-	"legs": "",
+	"utility": "",
+	"legs": [],
 	"primary_arm": "pistol",
 	"secondary_arm": "",
 	"battery": 100,
@@ -77,6 +84,8 @@ var player_parts: Dictionary = {
 	"storage": 10.0,
 	"health": 100
 }
+
+var owned_modules: Array = []
 
 #var upgrades: Dictionary = {
 #	"battery": {"name": "Battery Capacity", "effect": 100, "cost": [0, 0, 2, 0, 1], "max": 5},
@@ -90,6 +99,16 @@ var player_parts: Dictionary = {
 
 const ITEM_PRELOAD = preload("res://Scenes/Item.tscn")
 const BULLET_PRELOAD = preload("res://Weapons/Bullet/Bullet.tscn")
+
+var timer = 0.0
+func _process(delta):
+	timer += delta
+	if timer >= 1.0:
+		time += 1
+		timer -= 1.0
+	if time >= CYCLE_LEN:
+		time = 0
+
 
 func change_item_count(item: String, change: int):
 	if curr_inventory + items[item]["volume"] * change <= player_parts["storage"] and items[item]["stored"] + change >= 0:

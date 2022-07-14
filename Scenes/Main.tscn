@@ -1,20 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Environment/TestMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/daynight.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/daynight.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/DefaultMech/DefaultMech.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ParallaxScrollingScene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/BunkerEntrance.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/transition.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="daynight" type="CanvasModulate" parent="."]
-color = Color( 0.168627, 0, 0.14902, 1 )
-script = ExtResource( 5 )
-colors = [ Color( 0.168627, 0, 0.14902, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.168627, 0.00392157, 0.00392157, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.101961, 0.0352941, 0.0941176, 1 ), Color( 0.168627, 0, 0.14902, 1 ) ]
+[node name="fade" parent="." instance=ExtResource( 9 )]
+
+[node name="daynight" parent="." instance=ExtResource( 5 )]
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 position = Vector2( 649, -55 )
@@ -77,7 +78,7 @@ position = Vector2( 377, 86 )
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 collision_layer = 3
 collision_mask = 7
-tile_data = PoolIntArray( -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -196619, 0, 0, -262128, 0, 0, -131083, 0, 0, -131082, 0, 0, -196592, 0, 0, -65547, 0, 0, -65546, 0, 0, -65543, 0, 0, -65542, 0, 0, -131057, 0, 0, -131056, 0, 0, -11, 0, 0, -10, 0, 0, -7, 0, 0, -6, 0, 0, -3, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0 )
+tile_data = PoolIntArray( -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -196619, 0, 0, -262128, 0, 0, -131083, 0, 0, -131082, 0, 0, -196592, 0, 0, -65547, 0, 0, -65546, 0, 0, -65543, 0, 0, -65542, 0, 0, -131057, 0, 0, -131056, 0, 0, -11, 0, 0, -10, 0, 0, -7, 0, 0, -6, 0, 0, -3, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0 )
 
 [node name="DefaultMech2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 992, -128 )
@@ -98,10 +99,12 @@ volume_of_parts_dropped = 3.0
 position = Vector2( -416, -128 )
 parts_to_drop = [ "power_cell", "wiring", "sensor", "scrap" ]
 
+[node name="BunkerEntrance" parent="." instance=ExtResource( 8 )]
+position = Vector2( 893, -2 )
+
 [node name="ParallaxScrollingScene" parent="." instance=ExtResource( 7 )]
 offset = Vector2( 540, -350 )
 transform = Transform2D( 1, 0, 0, 1, 540, -350 )
 
 [editable path="Player"]
 [editable path="Player/Player/Camera2D/UI"]
-[editable path="ParallaxScrollingScene"]

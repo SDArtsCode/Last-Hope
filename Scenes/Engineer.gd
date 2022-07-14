@@ -6,6 +6,10 @@ var in_menu = false
 
 onready var arm_anim = get_node("../Arm/anim")
 
+func _ready():
+	Global.player = self
+
+
 func _process(delta):
 	if Input.is_action_pressed("left") and can_move:
 		move_and_slide(Vector2(-speed, 0))

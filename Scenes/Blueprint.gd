@@ -6,22 +6,28 @@ var prev_select: bool = false
 var played: bool = false
 
 onready var mid = get_node("../../bg")
-onready var anim = $AnimationPlayer
+onready var anim = $good
 
 func _ready():
+	update_ui()
+
+func update_ui():
 	$Sprite2/Title.text = Global.blueprints[blueprint]["name"]
 	$Sprite2/Discription.text = Global.blueprints[blueprint]["discription"]
+	$Sprite.frame = Global.blueprints.keys().find(blueprint)
 	var type = Global.blueprints[blueprint]["stats"]["type"]
 	
 	$Sprite2/Cost.modulate = Color(0.0, 1.0, 0.0)
-	for mat in Global.items.keys():
-		if Global.items[mat]["stored"] >= Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(mat)]:
+	for mat in Global.COST_KEY:
+		if Global.items[mat]["bunker"] < Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(mat)]:
 			$Sprite2/Cost.modulate = Color(1.0, 0.0, 0.0)
-	
-	if $Sprite2/Cost.modulate == Color(1.0, 0.0, 0.0):
+			played = true
+	$Sprite2/Cost.text = "- COST -\n"
+	$Sprite2/Stats.text = "- STATS -\n"
+	if played:
 		for key in Global.COST_KEY:
 			if Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(key)] != 0:
-				$Sprite2/Cost.text += Global.items[key]["name"] + ": " + str(Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(key)]) + " (" + str(Global.items[key]["stored"]) + ")\n"
+				$Sprite2/Cost.text += Global.items[key]["name"] + ": " + str(Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(key)]) + " (" + str(Global.items[key]["bunker"]) + ")\n"
 	else:
 		for key in Global.COST_KEY:
 			if Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(key)] != 0:
@@ -45,7 +51,7 @@ func _ready():
 		"basic_gun": # {"type": "basic_gun", "damage": 10, "shoot_speed": 10, "shots_per_click": 1, "spacing": 0.5}
 			$Sprite2/Stats.text += ("Damage: " + str(Global.blueprints[blueprint]["stats"]["damage"]) + "/hit\n" + 
 									"Speed: " + str(Global.blueprints[blueprint]["stats"]["shoot_speed"]) + " shot(s)/sec\n" +
-									"DPS: " + str(stepify(Global.blueprints[blueprint]["stats"]["damage"]*Global.blueprints[blueprint]["stats"]["shoot_speed"], 0.1)))
+									"DPS: " + str(stepify(Global.blueprints[blueprint]["stats"]["damage"]/Global.blueprints[blueprint]["stats"]["shoot_speed"], 0.1)))
 			
 		"laser_gun": # {"type": "laser_gun", "dps": 35}
 			$Sprite2/Stats.text += "\nDPS: " + str(Global.blueprints[blueprint]["stats"]["dps"])
@@ -75,6 +81,10 @@ func _process(delta):
 	
 	if Global.selected == index and not prev_select:
 		anim.play("info")
+		if Global.blueprints[blueprint]["stats"]["type"] == "upgrade":
+			Global.can_enter = not played and not (Global.player_parts[blueprint] - Global.blueprints[blueprint]["stats"]["baseval"])/Global.blueprints[blueprint]["stats"]["effect"] == Global.blueprints[blueprint]["stats"]["max"]
+		else:
+			Global.can_enter = not played
 		
 	if not Global.selected == index and prev_select:
 		anim.play_backwards("info")
@@ -83,7 +93,28 @@ func _process(delta):
 #			anim.play_backwards("info")
 	
 	prev_select = Global.selected == index
-	
+	if Global.entered:
+		if prev_select:
+			Global.entered = false
+			anim.play("zoom")
+			for mat in Global.COST_KEY:
+				Global.items[mat]["bunker"] -= Global.blueprints[blueprint]["cost"][Global.COST_KEY.find(mat)]
+			Global.transition()
+			Global.player.arm_anim.play("arm_down")
+			yield(get_tree().create_timer(1.0), "timeout")
+			Global.player.in_menu = false
+			Global.blueprint_up = false
+			Global.selected = -1
+			if Global.blueprints[blueprint]["stats"]["type"] == "upgrade":
+				Global.player_parts[blueprint] += Global.blueprints[blueprint]["stats"]["effect"]
+				Global.outfitting_menu.update_ui()
+			# add code to add created thing
+			yield(get_tree().create_timer(1.0), "timeout")
+			Global.player.can_move = true
+			Global.transition()
+		else:
+			pass
+
 #func _input(event):
 #	if event.is_action_pressed("drop") and Global.selected == index:
 #		if played:

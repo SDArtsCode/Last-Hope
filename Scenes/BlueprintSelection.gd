@@ -25,13 +25,24 @@ func _ready():
 
 func _process(delta):
 	slider.position.x += (xtarg-slider.position.x)*delta*5
+	xtarg = -GAP*Global.selected
+	if Global.entered:
+		yield(get_tree().create_timer(0.001), "timeout")
+		for child in $slide.get_children():
+			child.update_ui()
+
 
 
 func _input(event):
 	if event.is_action_pressed("left") and Global.selected != 0 and Global.blueprint_up:
 		Global.selected -= 1
-		xtarg += GAP
+#		xtarg += GAP
 	if event.is_action_pressed("right") and Global.selected != len(blueprints)-1 and Global.blueprint_up:
 		Global.selected += 1
-		xtarg -= GAP
+#		xtarg -= GAP
+	if event.is_action_pressed("select"):
+		if Global.can_enter:
+			Global.entered = true
+		else:
+			$flash.play("flash")
 		

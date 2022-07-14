@@ -81,7 +81,7 @@ func update_inventory():
 			item_icon_inst.item_count = item["stored"]
 			item_icon_inst.item_id = index
 			item_icon_inst.select_id = item_num - 1
-			item_icon_inst.position.x = (MAX_FROM_BASE/(num_item+1))*item_num-MAX_FROM_BASE/2 # change - to + to left align
+			item_icon_inst.position.x = (MAX_FROM_BASE/(num_item+1))*item_num-MAX_FROM_BASE/2 
 			$Base.add_child(item_icon_inst)
 			
 		index += 1
