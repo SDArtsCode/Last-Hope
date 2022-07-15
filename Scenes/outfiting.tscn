@@ -51,7 +51,7 @@ margin_top = -30.0
 margin_right = -150.0
 margin_bottom = -186.0
 custom_fonts/font = SubResource( 2 )
-text = "Stored Modules"
+text = "Arm Modules"
 align = 1
 
 [node name="Move" type="Node2D" parent="Title2"]

@@ -85,7 +85,7 @@ var player_parts: Dictionary = {
 	"health": 100
 }
 
-var owned_modules: Array = []
+var owned_modules: Array = ["energy_sword", "plasma_sword", "chainsaw", "pistol", "rifle", "shotgun", "laser", "jump", "dash", "flashlight", "scraper"]
 
 #var upgrades: Dictionary = {
 #	"battery": {"name": "Battery Capacity", "effect": 100, "cost": [0, 0, 2, 0, 1], "max": 5},

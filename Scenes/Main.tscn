@@ -16,7 +16,6 @@ script = ExtResource( 4 )
 [node name="fade" parent="." instance=ExtResource( 9 )]
 
 [node name="daynight" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="Item" parent="." instance=ExtResource( 3 )]
 position = Vector2( 649, -55 )

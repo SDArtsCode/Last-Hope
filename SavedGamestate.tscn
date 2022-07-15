@@ -1,24 +1,26 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Item.gd" type="Script" id=2]
-[ext_resource path="res://Environment/BasicTile.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Weapons/Weapon.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Mouse.gd" type="Script" id=6]
-[ext_resource path="res://Weapons/Laser.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Main.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Player.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/Inventory.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/log.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Item.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/BasicTile.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=5]
+[ext_resource path="res://Weapons/Weapon.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Inventory.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/log.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Mouse.gd" type="Script" id=10]
+[ext_resource path="res://Weapons/Laser.gd" type="Script" id=11]
 [ext_resource path="res://Weapons/Melee.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/daynight.gd" type="Script" id=13]
-[ext_resource path="res://Scenes/transition.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Environment/TestMap.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/daynight.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/BunkerEntrance.tscn" type="PackedScene" id=18]
-[ext_resource path="res://ParallaxScrollingScene.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Entities/DefaultMech/DefaultMech.gd" type="Script" id=14]
+[ext_resource path="res://Entities/DefaultMech/DefaultMech.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/BunkerEntrance.tscn" type="PackedScene" id=16]
+[ext_resource path="res://ParallaxScrollingScene.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Environment/TestMap.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/transition.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/daynight.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.106145, 0.178295, 0.24162, 0.455307, 0.52933, 0.610335, 0.668994, 0.923184, 1 )
@@ -75,7 +77,7 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="TileSet" id=9]
 0/name = "BasicTile.png 0"
-0/texture = ExtResource( 3 )
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 64, 64 )
@@ -97,87 +99,88 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 0/z_index = 0
 
 [node name="Main" type="Node2D"]
-script = ExtResource( 8 )
+script = ExtResource( 5 )
 
-[node name="fade" type="CanvasLayer" parent="." instance=ExtResource( 14 )]
+[node name="fade" type="CanvasLayer" parent="." instance=ExtResource( 20 )]
 
-[node name="daynight" type="CanvasModulate" parent="." instance=ExtResource( 17 )]
-visible = false
-color = Color( 0.311087, 0.232565, 0.140703, 1 )
+[node name="daynight" type="CanvasModulate" parent="." instance=ExtResource( 21 )]
+color = Color( 0.18928, 0.0363191, 0.116084, 1 )
 script = ExtResource( 13 )
 colors = [ Color( 0.168627, 0, 0.14902, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.988235, 1, 0.776471, 1 ), Color( 0.678431, 0.678431, 0.603922, 1 ), Color( 0.282353, 0.2, 0.113725, 1 ), Color( 0.168627, 0.00392157, 0.00392157, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ), Color( 0.101961, 0.0352941, 0.0941176, 1 ), Color( 0.168627, 0, 0.14902, 1 ) ]
 gradient = SubResource( 1 )
 
-[node name="Item8" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 4 )]
-position = Vector2( 794.671, -16.0611 )
-rotation = 1.56989
+[node name="Item2" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 3 )]
+position = Vector2( 73.0169, -16.0433 )
+rotation = 6.0274e-06
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource( 5 )
 gravity_scale = 2.4
-linear_velocity = Vector2( -0.017346, -1.9432 )
+linear_velocity = Vector2( -0.86982, 3.56363 )
 linear_damp = 0.1
-angular_velocity = -0.00135846
+angular_velocity = -0.0602594
 angular_damp = 0.1
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 item_name = "energy_core"
 blueprint = ""
 collected = false
 
-[node name="Item5" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 4 )]
-position = Vector2( 784.004, -15.8948 )
-rotation = -0.000502941
+[node name="Item3" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 3 )]
+position = Vector2( 170.876, -16.0222 )
+rotation = -0.00123224
+scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource( 5 )
 gravity_scale = 2.4
-linear_velocity = Vector2( -0.477742, 7.6922 )
+linear_velocity = Vector2( -0.0172881, 1.98007 )
 linear_damp = 0.1
-angular_velocity = -0.0298206
+angular_velocity = -0.00135616
 angular_damp = 0.1
-script = ExtResource( 2 )
-item_name = "power_cell"
-blueprint = ""
+script = ExtResource( 1 )
+item_name = "blueprint"
+blueprint = "chainsaw"
 collected = false
 
-[node name="Item6" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 4 )]
-position = Vector2( -67.1282, -16.0546 )
-rotation = -0.00254148
+[node name="Item6" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 3 )]
+position = Vector2( -66.5111, -16.0823 )
+rotation = -0.00297817
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource( 5 )
 gravity_scale = 2.4
-linear_velocity = Vector2( -0.0562111, -5.89269 )
+linear_velocity = Vector2( 0.0314005, -1.93745 )
 linear_damp = 0.1
-angular_velocity = -0.000697337
+angular_velocity = 0.00297443
 angular_damp = 0.1
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 item_name = "sensor"
 blueprint = ""
 collected = false
 
-[node name="Item7" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 4 )]
-position = Vector2( -38.3554, -16.0692 )
-rotation = -1.57057
+[node name="Item7" type="RigidBody2D" parent="." groups=["Item"] instance=ExtResource( 3 )]
+position = Vector2( -5.37156, -16.0176 )
+rotation = -0.000550248
+scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 0
 physics_material_override = SubResource( 5 )
 gravity_scale = 2.4
-linear_velocity = Vector2( -0.0195246, -1.95018 )
+linear_velocity = Vector2( -0.0248768, -5.88532 )
 linear_damp = 0.1
-angular_velocity = -0.00149492
+angular_velocity = -0.000139247
 angular_damp = 0.1
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 item_name = "sensor"
 blueprint = ""
 collected = false
 
-[node name="Player" parent="." instance=ExtResource( 15 )]
+[node name="Player" parent="." instance=ExtResource( 18 )]
 position = Vector2( 360, -56 )
 
 [node name="Player" parent="Player" index="0" groups=["Player"]]
-position = Vector2( 530.012, 26.9956 )
-script = ExtResource( 9 )
+position = Vector2( 476.677, 26.924 )
+script = ExtResource( 7 )
 health_bar_path = NodePath("")
 MAX_HEALTH = 100
 knockback_resistance = 1.0
@@ -189,7 +192,7 @@ acceleration = 0
 weight_capacity = 20
 
 [node name="Sprite" parent="Player/Player" index="0"]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="Player/Player" index="1"]
 position = Vector2( 1, -1 )
@@ -205,7 +208,7 @@ margin_right = 1909.0
 margin_bottom = 54.0
 max_value = 10.0
 percent_visible = false
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="Base" parent="Player/Player/Camera2D/UI/ProgressBar" index="0"]
 position = Vector2( 377, 86 )
@@ -218,6 +221,7 @@ align = 1
 valign = 1
 
 [node name="log" parent="Player/Player/Camera2D/UI" index="1"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 14.0
@@ -226,9 +230,9 @@ margin_right = 1921.0
 margin_bottom = -9.0
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[color=red]Inventory full![/color]"
-text = "Inventory full!"
-script = ExtResource( 11 )
+bbcode_text = "asdasd"
+text = "asdasd"
+script = ExtResource( 9 )
 
 [node name="flash" parent="Player/Player/Camera2D/UI/log" index="2"]
 anims/RESET = SubResource( 7 )
@@ -239,7 +243,7 @@ position = Vector2( 1, -1 )
 shape = SubResource( 6 )
 
 [node name="Weapon" parent="Player/Player" index="4"]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 automatic = true
 fire_rate = 0.08
 magazine_size = 42
@@ -247,6 +251,7 @@ reload_time = 1.0
 damage = 5
 bullet_speed = 100
 min_accuracy = 1.0
+accuracy = 1
 accuracy_decrease = 0.2
 accuracy_increase = 0.1
 max_accuracy = 6.0
@@ -255,14 +260,14 @@ bullet_per_shot = 1
 shoot_pos_path = NodePath("../AimPosition")
 
 [node name="AimPosition" parent="Player/Player" index="5"]
-position = Vector2( 54.4749, -33.5929 )
+position = Vector2( -45.5316, -44.9764 )
 
 [node name="Mouse" parent="Player/Player" index="6"]
-position = Vector2( 30, -18.5 )
-script = ExtResource( 6 )
+position = Vector2( -41, -40.5 )
+script = ExtResource( 10 )
 
 [node name="Laser" parent="Player/Player" index="7"]
-script = ExtResource( 7 )
+script = ExtResource( 11 )
 laser_damage = 4
 damage_tick_speed = 0.2
 charge_and_retreat_speed = 0.5
@@ -270,25 +275,45 @@ laser_distance = 2000
 
 [node name="Melee" parent="Player/Player" index="8"]
 script = ExtResource( 12 )
-melee_distance = 100
-melee_damage = 10
+melee_distance = 150
+melee_damage = 50
 automatic = false
-melee_speed = 1.0
+melee_speed = 1.5
 
-[node name="TileMap" type="TileMap" parent="." instance=ExtResource( 16 )]
+[node name="TileMap" type="TileMap" parent="." instance=ExtResource( 19 )]
 tile_set = SubResource( 9 )
 collision_layer = 3
 collision_mask = 7
 format = 1
 tile_data = PoolIntArray( -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -196619, 0, 0, -262128, 0, 0, -131083, 0, 0, -131082, 0, 0, -196592, 0, 0, -65547, 0, 0, -65546, 0, 0, -65543, 0, 0, -65542, 0, 0, -131057, 0, 0, -131056, 0, 0, -11, 0, 0, -10, 0, 0, -7, 0, 0, -6, 0, 0, -3, 0, 0, 65517, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0 )
 
-[node name="BunkerEntrance" type="Node2D" parent="." groups=["BunkerEntrance"] instance=ExtResource( 18 )]
+[node name="DefaultMech2" type="KinematicBody2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 992, -128 )
+collision_layer = 3
+script = ExtResource( 14 )
+health_bar_path = NodePath("")
+MAX_HEALTH = 100
+knockback_resistance = 1.0
+parts_to_drop = [ "sensor", "wiring", "power_cell", "scrap" ]
+volume_of_parts_dropped = 2.0
+
+[node name="DefaultMech4" type="KinematicBody2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( -416, -128 )
+collision_layer = 3
+script = ExtResource( 14 )
+health_bar_path = NodePath("")
+MAX_HEALTH = 100
+knockback_resistance = 1.0
+parts_to_drop = [ "sensor", "power_cell", "wiring", "scrap" ]
+volume_of_parts_dropped = 4.0
+
+[node name="BunkerEntrance" type="Node2D" parent="." groups=["BunkerEntrance"] instance=ExtResource( 16 )]
 position = Vector2( 893, -2 )
 
-[node name="ParallaxScrollingScene" type="ParallaxBackground" parent="." instance=ExtResource( 19 )]
+[node name="ParallaxScrollingScene" type="ParallaxBackground" parent="." instance=ExtResource( 17 )]
 offset = Vector2( 540, -350 )
 transform = Transform2D( 1, 0, 0, 1, 540, -350 )
-scroll_offset = Vector2( 69.9879, 559.504 )
+scroll_offset = Vector2( 123.323, 559.576 )
 
 [editable path="Player"]
 [editable path="Player/Player/Camera2D/UI"]
