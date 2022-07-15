@@ -19,8 +19,10 @@ animations = [ {
 [node name="ParallaxScrollingScene" type="ParallaxBackground"]
 
 [node name="daynight" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="SkyLayer" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 2250, 0 )
 __meta__ = {
 "_edit_group_": true
@@ -32,11 +34,13 @@ scale = Vector2( 1.09843, 1.30414 )
 texture = ExtResource( 3 )
 
 [node name="celestial_object" type="AnimatedSprite" parent="."]
+visible = false
 z_index = -2
 frames = SubResource( 1 )
 script = ExtResource( 7 )
 
 [node name="BackLayer" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 2250, 0 )
 __meta__ = {
@@ -50,6 +54,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="MiddleLayer" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 2250, 0 )
 __meta__ = {
@@ -62,6 +67,7 @@ scale = Vector2( 1.10383, 0.961546 )
 texture = ExtResource( 4 )
 
 [node name="FrontLayer" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 2250, 0 )
 __meta__ = {
