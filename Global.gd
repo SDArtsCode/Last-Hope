@@ -48,13 +48,13 @@ var blueprints: Dictionary = {
 	"chainsaw": {"stats": {"type": "close_melee", "dps": 60, "length": 0.5}, 
 	"name": "Hyper Chainsaw", "has_blueprint": false, "cost": [30, 10, 5, 0, 1], "discription": "ADD DISCRIPTION HERE"},
 	
-	"pistol": {"stats": {"type": "basic_gun", "damage": 10, "shoot_speed": 1.0, "shots_per_click": 1, "spacing": 0.5}, 
+	"pistol": {"stats": {"type": "basic_gun", "damage": 10, "shoot_speed": 1.0, "shots_per_click": 1, "spacing": 0.5, "ammo": 6, "accuracy": 0}, 
 	"name": "Laser Pistol", "has_blueprint": true, "cost": [5, 1, 2, 0, 0], "discription": "Basic weapon, fairly weak"},
 	
-	"rifle": {"stats": {"type": "basic_gun", "damage": 5, "shoot_speed": 1.0, "shots_per_click": 4, "spacing": 0.1},
+	"rifle": {"stats": {"type": "basic_gun", "damage": 5, "shoot_speed": 1.0, "shots_per_click": 4, "spacing": 0.1, "ammo": 10, "accuracy": 1},
 	"name": "Laser Rifle", "has_blueprint": false, "cost": [10, 3, 2, 0, 0], "discription": "Burst fire weapon, deals more damage than the laser pistol"},
 	
-	"shotgun": {"stats": {"type": "basic_gun", "damage": 3, "shoot_speed": 0.2, "shots_per_click": 20, "spacing": 0.001},
+	"shotgun": {"stats": {"type": "basic_gun", "damage": 3, "shoot_speed": 1.5, "shots_per_click": 20, "spacing": 0.001, "ammo": 4, "accuracy": 7.5},
 	"name": "The Sawdon", "has_blueprint": false, "cost": [20, 4, 6, 0, 1], "discription": "Shoots in a cone shape, deals massive damage when close"},
 	
 	"laser": {"stats": {"type": "laser_gun", "dps": 40},
@@ -77,8 +77,8 @@ var blueprints: Dictionary = {
 var player_parts: Dictionary = {
 	"utility": "",
 	"legs": [],
-	"primary_arm": "pistol",
-	"secondary_arm": "",
+	"primary_arm": "sythe",
+	"secondary_arm": "plasma_sword",
 	"battery": 100,
 	"speed": 200,
 	"storage": 10.0,

@@ -8,6 +8,7 @@ export (int) var damage = 15
 export (int) var bullet_speed = 40
 # This is the least amount of random variance a bullet will have
 export (float) var min_accuracy = 4
+export (float) var accuracy = 4
 # this is the rate per SHOT that the weapon gets less accurate after firing
 export (float) var accuracy_decrease = 1
 # this is the rate per SECOND that the weapon becomes more accurate after the 
@@ -91,8 +92,8 @@ func fire():
 		for shot in bullet_per_shot:
 			var bullet_instance = bullet.instance()
 			bullet_instance.damage = damage
-			bullet_instance.speed = bullet_speed * 1000
-			var absolute_rotation = deg2rad(mock_gun_rotation) + (rand_range(-current_accuracy, current_accuracy) / 100 * PI)
+			bullet_instance.speed = bullet_speed * (1000+rand_range(-100, 100))
+			var absolute_rotation = deg2rad(mock_gun_rotation) + (rand_range(-accuracy, accuracy) / 100 * PI)
 			var bullet_direction = Vector2(cos(absolute_rotation),sin(absolute_rotation))
 			bullet_instance.direction = bullet_direction
 			get_node("/root").add_child(bullet_instance)

@@ -16,7 +16,9 @@ func _physics_process(delta):
 		var collision = get_slide_collision(0)
 		if collision.collider.is_in_group("entity"):
 			collision.collider.damage(damage)
-		queue_free()
+		for body in range(get_slide_count()):
+			if get_slide_collision(body).get_collider().name != "Bullet":
+				queue_free()
 	if (global_position - initial_position).length() > 2000:
 		queue_free()
 	

@@ -65,4 +65,7 @@ func update_ui():
 		mlinst.position.y += GAP*count
 		$Title2/Move/VBoxContainer.add_child(mlinst)
 		count += 1
-		
+
+func _input(event):
+	if event.is_action_pressed("up"):
+		pass
