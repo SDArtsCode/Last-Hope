@@ -12,8 +12,8 @@ var outfitting_menu: Node
 
 var transition_nodes: Array
 
-var time: float = 0.0
-const CYCLE_LEN: float = 15.0
+var time: float = 200
+const CYCLE_LEN: float = 600.0
 
 var curr_inventory: float = 0.0
 
