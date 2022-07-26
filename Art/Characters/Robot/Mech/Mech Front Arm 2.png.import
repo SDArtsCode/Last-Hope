@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex"
+path="res://.import/Mech Front Arm 2.png-784b316d922d266d8432a86d4f1f1b0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/BasicTile.png"
-dest_files=[ "res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex" ]
+source_file="res://Art/Characters/Robot/Mech/Mech Front Arm 2.png"
+dest_files=[ "res://.import/Mech Front Arm 2.png-784b316d922d266d8432a86d4f1f1b0d.stex" ]
 
 [params]
 

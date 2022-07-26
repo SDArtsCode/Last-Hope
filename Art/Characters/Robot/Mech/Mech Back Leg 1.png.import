@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex"
+path="res://.import/Mech Back Leg 1.png-e1f288acb30e37d0a919eda8c6d83d4f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/BasicTile.png"
-dest_files=[ "res://.import/BasicTile.png-e9128c0c690fa61b9d4d72c69b00d7eb.stex" ]
+source_file="res://Art/Characters/Robot/Mech/Mech Back Leg 1.png"
+dest_files=[ "res://.import/Mech Back Leg 1.png-e1f288acb30e37d0a919eda8c6d83d4f.stex" ]
 
 [params]
 
