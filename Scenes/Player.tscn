@@ -9,16 +9,17 @@
 [ext_resource path="res://Weapons/Laser.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 44.058, 59.5 )
+extents = Vector2( 33.5, 31.75 )
 
 [node name="Player" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="." groups=["Player"]]
 script = ExtResource( 2 )
 MAX_HEALTH = 100
+speed = 275
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( -1.942, 27 )
+position = Vector2( -0.5, -0.25 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -29,7 +30,6 @@ current = true
 [node name="Area2D" type="Area2D" parent="Player"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
-position = Vector2( 0.884, 27.5 )
 shape = SubResource( 1 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 4 )]
@@ -53,3 +53,4 @@ script = ExtResource( 5 )
 [node name="Melee" parent="Player" instance=ExtResource( 6 )]
 
 [node name="GFX" parent="Player" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )

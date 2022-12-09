@@ -13,7 +13,7 @@ func _ready():
 
 func update_ui():
 	$Sprite2/Title.text = Global.blueprints[blueprint]["name"]
-	$Sprite2/Discription.text = Global.blueprints[blueprint]["discription"]
+	$Sprite2/Description.text = Global.blueprints[blueprint]["description"]
 	$Sprite.frame = Global.blueprints.keys().find(blueprint)
 	var type = Global.blueprints[blueprint]["stats"]["type"]
 	
