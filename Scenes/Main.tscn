@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Environment/TestMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Art/Tilesets/Exterior5.png" type="Texture" id=14]
 [ext_resource path="res://Art/Tilesets/Exterior6.png" type="Texture" id=15]
 [ext_resource path="res://Art/Tilesets/Exterior7.png" type="Texture" id=16]
+[ext_resource path="res://Art/Platform.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Platform.gd" type="Script" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 1, 64, 1 )
@@ -128,6 +130,9 @@ resource_name = "Exterior"
 6/shapes = [  ]
 6/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 50, 8 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -189,10 +194,14 @@ item_name = "sensor"
 position = Vector2( 706, -152 )
 
 [node name="Player" parent="Player" index="0"]
-acceleration = 0.2
+speed = 500
+jump_speed = -1050
+gravity = 2200
 
 [node name="Base" parent="Player/Player/Camera2D/UI/ProgressBar" index="0"]
 position = Vector2( 377, 86 )
+
+[node name="Sprite" type="Sprite" parent="Player/Player" index="9"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 tile_set = SubResource( 2 )
@@ -227,7 +236,29 @@ position = Vector2( 893, -2 )
 offset = Vector2( 540, -350 )
 transform = Transform2D( 1, 0, 0, 1, 540, -350 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." groups=["Platform"]]
+position = Vector2( 1407, -117 )
+scale = Vector2( 2.83999, 1.52 )
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Platform"]
+texture = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" groups=["Platform"]]
+shape = SubResource( 4 )
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="." groups=["Platform"]]
+position = Vector2( 1935, -190 )
+scale = Vector2( 2.83999, 1.52 )
+script = ExtResource( 18 )
+
+[node name="Sprite" type="Sprite" parent="Platform2"]
+texture = ExtResource( 17 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" groups=["Platform"]]
+shape = SubResource( 4 )
+one_way_collision = true
 
 [editable path="Player"]
 [editable path="Player/Player/Camera2D/UI"]

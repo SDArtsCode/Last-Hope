@@ -17,6 +17,7 @@ extents = Vector2( 33.5, 31.75 )
 script = ExtResource( 2 )
 MAX_HEALTH = 100
 speed = 275
+jump_speed = -250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( -0.5, -0.25 )

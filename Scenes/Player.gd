@@ -3,8 +3,8 @@ extends Entity2D
 export (int) var speed = 200
 export (int) var jump_speed = -1700
 export (int) var gravity = 3000
-export (int) var friction = 0.1
-export (float) var acceleration = 0.2
+export (float) var friction = 0.3
+export (float) var acceleration = 0.4
 
 var shoot_timer = 0.0
 var current_weapon = 0
@@ -13,7 +13,7 @@ export (int) var weight_capacity = 20
 
 var velocity =  Vector2.ZERO
 var can_move = true
-var can_jump = false
+var can_jump = true
 var can_dash = false
 
 func _ready():
@@ -28,11 +28,9 @@ func get_input():
 	
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed , acceleration)
-		print(velocity.x)
-		print(acceleration)
 	elif dir == 0:
 		velocity.x = lerp(velocity.x, 0, friction)
-	
+		
 	match Global.blueprints[Global.player_parts["weapons"][current_weapon]]["stats"]["type"]:
 		"basic_gun": #{"type": "basic_gun", "damage": 5, "shoot_speed": 1.0, "shots_per_click": 4, "spacing": 0.1} (spacing is time between each bullet in a click)
 			if Input.is_action_just_pressed("reload"):
@@ -86,12 +84,28 @@ func _physics_process(delta: float) -> void:
 
 func _input(event):
 
+	#jumping
+	if event.is_action_pressed("jump") and can_move and can_jump:
+		if is_on_floor():
+			velocity.y = jump_speed
+			
+	#platforming
+	if (event.is_action_pressed("down") and is_on_floor()):
+		print("Down pressed")
+		for b in $Area2D.get_overlapping_bodies():
+			print(b.name)
+			if b.is_in_group("Platform"):
+				b.DisableCollider()
+		pass
+
+	#weapon switching
 	for i in range(1, 10):
 		if event.is_action_pressed(str(i)):
 			current_weapon = i - 1
 			pass
 		pass
 	
+	#interactions (fix)
 	if event.is_action_pressed("interact") and can_move:
 		for b in $Area2D.get_overlapping_areas():
 			b = b.get_node("../")
@@ -120,10 +134,7 @@ func _input(event):
 				b.queue_free()
 				break
 	
-	if event.is_action_pressed("jump") and can_move and can_jump:
-		if is_on_floor():
-			velocity.y = jump_speed
-	
-		
+
+
 
 

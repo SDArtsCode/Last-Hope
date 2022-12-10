@@ -13,10 +13,10 @@ func _ready():
 		while cur_vol_of_parts < volume_of_parts_dropped:
 			parts_to_drop.shuffle()
 			cur_parts_to_drop.append(parts_to_drop[0])
-			print(parts_to_drop)
+			#print(parts_to_drop)
 			cur_vol_of_parts += Global.items[parts_to_drop[0]]["volume"]
-			print("Vol: " + str(cur_vol_of_parts) + ", Part: " + parts_to_drop[0])
-		print("parts successfully calculated")
+			#print("Vol: " + str(cur_vol_of_parts) + ", Part: " + parts_to_drop[0])
+		#print("parts successfully calculated")
 	
 func Entity2D_OnEntityDead():
 	for item_name in cur_parts_to_drop:

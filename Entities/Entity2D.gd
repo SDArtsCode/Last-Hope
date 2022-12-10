@@ -40,7 +40,7 @@ func move(move_vel : Vector2, delta : float):
 func damage(dmg : int, impulse_dir : Vector2 = Vector2(), strength : float = 0):
 	set_health(health - dmg)
 	impulse(impulse_dir.normalized(), strength)
-	print(self.name + " health: " + str(health) + " / " + str(MAX_HEALTH))
+	#(self.name + " health: " + str(health) + " / " + str(MAX_HEALTH))
 
 func set_health(new_health : int):
 	if new_health < health:
