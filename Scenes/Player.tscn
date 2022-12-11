@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Mech.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Weapons/Weapon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Mouse.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Mouse.gd" type="Script" id=5]
 [ext_resource path="res://Weapons/Melee.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Weapons/Laser.tscn" type="PackedScene" id=7]
 
@@ -17,6 +17,7 @@ extents = Vector2( 33.5, 31.75 )
 script = ExtResource( 2 )
 MAX_HEALTH = 100
 speed = 275
+dash_speed = 1350
 jump_speed = -250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]

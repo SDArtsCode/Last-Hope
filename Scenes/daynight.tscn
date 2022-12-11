@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/daynight.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/daynight.gd" type="Script" id=1]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.106145, 0.178295, 0.24162, 0.380397, 0.446908, 0.455307, 0.52933, 0.610335, 0.701284, 1 )

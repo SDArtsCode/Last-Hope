@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Exterior1.png-2f9ead302a3d31d8e482a68dba3b1699.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://Art/Tilesets/Exterior1.png"
-dest_files=[ "res://.import/Exterior1.png-2f9ead302a3d31d8e482a68dba3b1699.stex" ]
-
+source_file="res://Art/Tilesets/OldTileset/X.PNG"
 [params]
 
 compress/mode=0

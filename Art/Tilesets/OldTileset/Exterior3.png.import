@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Exterior5.png-763956609173978b33a215a5ae9a9d3b.stex"
+path="res://.import/Exterior3.png-d458ca147eea276102de654f16b88340.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/Exterior5.png"
-dest_files=[ "res://.import/Exterior5.png-763956609173978b33a215a5ae9a9d3b.stex" ]
+source_file="res://Art/Tilesets/OldTileset/Exterior3.png"
+dest_files=[ "res://.import/Exterior3.png-d458ca147eea276102de654f16b88340.stex" ]
 
 [params]
 

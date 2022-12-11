@@ -66,7 +66,7 @@ func update_ui():
 		"night_vision":
 			$Sprite2/Stats.text += "- TIP -\n insert something we learn from playtesting here"
 			
-		"scraper":
+		"scrapper":
 			$Sprite2/Stats.text += "- TIP -\n It's a large investment, but delayed rewards are always sweeter!"
 			
 		"jump":
@@ -82,7 +82,7 @@ func _process(delta):
 	if Global.selected == index and not prev_select:
 		anim.play("info")
 		if Global.blueprints[blueprint]["stats"]["type"] == "upgrade":
-			Global.can_enter = not played and not (Global.player_parts[blueprint] - Global.blueprints[blueprint]["stats"]["baseval"])/Global.blueprints[blueprint]["stats"]["effect"] == Global.blueprints[blueprint]["stats"]["max"]
+			Global.can_enter = not played and not (Global.upgrades[blueprint] - Global.blueprints[blueprint]["stats"]["baseval"])/Global.blueprints[blueprint]["stats"]["effect"] == Global.blueprints[blueprint]["stats"]["max"]
 		else:
 			Global.can_enter = not played
 		
@@ -106,7 +106,7 @@ func _process(delta):
 			Global.blueprint_up = false
 			Global.selected = -1
 			if Global.blueprints[blueprint]["stats"]["type"] == "upgrade":
-				Global.player_parts[blueprint] += Global.blueprints[blueprint]["stats"]["effect"]
+				Global.upgrades[blueprint] += Global.blueprints[blueprint]["stats"]["effect"]
 				Global.outfitting_menu.update_ui()
 			# add code to add created thing
 			yield(get_tree().create_timer(1.0), "timeout")

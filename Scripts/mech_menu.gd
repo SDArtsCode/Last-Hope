@@ -32,7 +32,7 @@ func update_ui():
 		if Global.blueprints[blueprint]["stats"]["type"] == "upgrade":
 			var ulinst = upgrade_labels.instance()
 			ulinst.get_node("under").value = Global.blueprints[blueprint]["stats"]["max"]
-			ulinst.get_node("over").value = (Global.player_parts[blueprint] - Global.blueprints[blueprint]["stats"]["baseval"])/Global.blueprints[blueprint]["stats"]["effect"]
+			ulinst.get_node("over").value = (Global.upgrades[blueprint] - Global.blueprints[blueprint]["stats"]["baseval"])/Global.blueprints[blueprint]["stats"]["effect"]
 			ulinst.text = "\n" + Global.blueprints[blueprint]["name"] + ": \n"
 			$Title1/VBoxContainer.add_child(ulinst)
 		
@@ -89,7 +89,7 @@ func update_ui():
 					"night_vision":
 						to_add.append([blueprint, "VISION"])
 					
-					"scraper":
+					"scrapper":
 						to_add.append([blueprint, "SCRAP"])
 	count = 0
 	to_add.sort_custom(MyCustomSorter, "sort_decending")
@@ -136,15 +136,15 @@ func _input(event):
 		Global.transition()
 		yield(get_tree().create_timer(1.0), "timeout")
 		if module_type == "legs":
-			Global.player_parts[module_type].append(to_add[selected][0])
+			Global.upgrades[module_type].append(to_add[selected][0])
 			Global.owned_modules.erase(to_add[selected][0])
 		else:
-			if Global.player_parts[module_type].empty():
-				Global.player_parts[module_type] = to_add[selected][0]
+			if Global.upgrades[module_type].empty():
+				Global.upgrades[module_type] = to_add[selected][0]
 				Global.owned_modules.erase(to_add[selected][0])
 			else:
-				var temp = Global.player_parts[module_type]
-				Global.player_parts[module_type] = to_add[selected][0]
+				var temp = Global.upgrades[module_type]
+				Global.upgrades[module_type] = to_add[selected][0]
 				Global.owned_modules.erase(to_add[selected][0])
 				Global.owned_modules.append(temp)
 		update_ui()

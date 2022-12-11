@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Exterior3.png-a3e1e54f0ceb22491478556605ab369b.stex"
+path="res://.import/TestTile.png-e841cd9abb7e3429787d82e127049832.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/Exterior3.png"
-dest_files=[ "res://.import/Exterior3.png-a3e1e54f0ceb22491478556605ab369b.stex" ]
+source_file="res://Art/Tilesets/TestTileset/TestTile.png"
+dest_files=[ "res://.import/TestTile.png-e841cd9abb7e3429787d82e127049832.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
