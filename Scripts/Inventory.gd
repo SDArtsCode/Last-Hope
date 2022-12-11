@@ -11,7 +11,7 @@ var num_item = 0
 
 func _ready():
 	Global.inventory_controller = self
-	max_value = Global.player_parts["storage"]
+	max_value = Global.upgrades["storage"]
 
 func _process(delta):
 	if drop_mode:
@@ -86,7 +86,7 @@ func update_inventory():
 			
 		index += 1
 	Global.curr_inventory = value
-	$indicator.text = str(Global.curr_inventory) + "/" + str(Global.player_parts["storage"]) + " m³"
+	$indicator.text = str(Global.curr_inventory) + "/" + str(Global.upgrades["storage"]) + " m³"
 	
 func update_index():
 	for child in $Base.get_children():
