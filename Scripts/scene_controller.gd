@@ -3,7 +3,7 @@ extends Node
 var scenes_in_game : Dictionary = {
 	"1" : preload("res://Scenes/Levels/1.tscn"),
 	"2" : preload("res://Scenes/Levels/2.tscn"),
-	#"3" : preload("res://Scenes/Levels/3.tscn")
+	"3" : preload("res://Scenes/Levels/3.tscn")
 }
 
 var cur_scene_name : String = "main_menu"
@@ -20,7 +20,7 @@ var state = IN_SCENE
 
 func _ready():
 	$CanvasLayer/TransitionShader.show()
-	switch_scene("main_menu")
+	switch_scene("3")
 		
 func switch_scene(new_scene_name):
 	if scenes_in_game.keys().has(new_scene_name):

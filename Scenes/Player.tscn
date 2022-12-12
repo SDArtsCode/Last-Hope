@@ -9,7 +9,7 @@
 [ext_resource path="res://Art/PlayerAnimations.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 10 )
+extents = Vector2( 5, 10.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5, 10.5 )
