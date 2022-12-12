@@ -199,9 +199,6 @@ speed = 500
 jump_speed = -1050
 gravity = 2200
 
-[node name="Base" parent="Player/Player/Camera2D/UI/ProgressBar" index="0"]
-position = Vector2( 377, 86 )
-
 [node name="Sprite" type="Sprite" parent="Player/Player" index="9"]
 
 [node name="TileMap" parent="." instance=ExtResource( 6 )]
@@ -252,4 +249,3 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [editable path="Player"]
-[editable path="Player/Player/Camera2D/UI"]
