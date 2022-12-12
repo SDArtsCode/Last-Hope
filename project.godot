@@ -33,7 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-QuickExit="*res://QuickExit.gd"
+QuickExit="*res://Scripts/QuickExit.gd"
 
 [display]
 
