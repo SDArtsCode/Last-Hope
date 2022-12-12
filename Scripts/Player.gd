@@ -129,7 +129,23 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = move(velocity, delta)
 
-
+	if is_on_floor():
+		if velocity.length() < 10:
+			if $AnimatedSprite.animation == "Running":
+				$AnimatedSprite.stop()
+			$AnimatedSprite.play("Idle")
+		else:
+			if $AnimatedSprite.animation == "Idle":
+				$AnimatedSprite.stop()
+			$AnimatedSprite.play("Running")
+	else:
+		pass
+	
+	if sign(velocity.x) < 0:
+		$AnimatedSprite.scale.x = 1
+	elif sign(velocity.x) > 0:
+		$AnimatedSprite.scale.x = -1
+		
 func _input(event):
 
 	#jumping
