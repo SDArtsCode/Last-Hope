@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Tilemap/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/RoomTrigger.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 20 )
@@ -23,13 +24,6 @@ tile_data = PoolIntArray( -1769481, 0, 0, -1769480, 0, 0, -1769479, 0, 0, -17694
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="AnimatedSprite" parent="Player/Player" index="9"]
-frame = 3
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player/Player" index="10"]
-physics_interpolation_mode = 2
-remote_path = NodePath("../../../Camera2D")
-
 [node name="Platform" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2.84217e-14, 48 )
 z_index = -1
@@ -46,14 +40,8 @@ script = ExtResource( 5 )
 position = Vector2( -8, -4 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 2
-current = true
-zoom = Vector2( 0.2, 0.2 )
-limit_left = -9311868
-smoothing_enabled = true
-smoothing_speed = 10.0
-editor_draw_limits = true
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+limit_top = -335
 
 [connection signal="area_entered" from="RoomTrigger" to="RoomTrigger" method="_on_RoomTrigger_area_entered"]
 

@@ -37,8 +37,8 @@ QuickExit="*res://Scripts/QuickExit.gd"
 
 [display]
 
-window/size/borderless=true
-window/size/fullscreen=true
+window/size/width=1920
+window/size/height=1080
 
 [importer_defaults]
 

@@ -29,6 +29,12 @@ var can_jump = true
 
 
 func _ready():
+#	if get_node("../../Camera2D") != null:
+#		$RemoteTransform2D.remote_path = NodePath("../../Camera2D")
+#
+#	else:
+#		print("Cannot find camera")
+	
 	Global.player = self
 	for m in Global.upgrades["movement"]:
 		if m == "dash":
@@ -105,6 +111,10 @@ func get_input():
 				$Laser.toggle_active()
 		
 func _physics_process(delta: float) -> void:
+	
+	if Global.camera != null:
+		Global.camera.position = position 
+	
 	timer += delta
 	get_input()
 	

@@ -4,6 +4,8 @@ var root: Node
 
 var player: Node
 
+var camera: Node
+
 var inventory_controller: Node
 
 var info_log: Node
