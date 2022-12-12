@@ -302,7 +302,7 @@ anims/Running = SubResource( 4 )
 position = Vector2( 6, -2 )
 frames = SubResource( 11 )
 animation = "Running"
-frame = 4
+frame = 2
 playing = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]

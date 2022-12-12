@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/MusicController.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Ambience/ASHESTOASHES-SEWERS.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Ambience/ASHESTOASHES-GENORATOR.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Ambience/ASHESTOASHES-RESIDENTIAL1.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Ambience/ASHESTOASHES-CONSTRUCTION1.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Ambience/ASHESTOASHES-MARKET.mp3" type="AudioStream" id=6]
+
+[node name="MusicController" type="Node"]
+script = ExtResource( 1 )
+
+[node name="ambience" type="Node" parent="."]
+
+[node name="residental" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource( 4 )
+volume_db = -80.0
+autoplay = true
+bus = "Ambience"
+
+[node name="construction" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource( 5 )
+volume_db = -80.0
+autoplay = true
+bus = "Ambience"
+
+[node name="sewers" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+bus = "Ambience"
+
+[node name="generator" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+bus = "Ambience"
+
+[node name="market" type="AudioStreamPlayer" parent="ambience"]
+stream = ExtResource( 6 )
+volume_db = -80.0
+autoplay = true
+bus = "Ambience"
+
+[node name="motifs" type="Node" parent="."]
+
+[node name="day_start" type="AudioStreamPlayer" parent="motifs"]
+volume_db = -80.0
+bus = "Motif"
+
+[node name="new_area" type="AudioStreamPlayer" parent="motifs"]
+volume_db = -80.0
+bus = "Motif"
+
+[node name="friend" type="AudioStreamPlayer" parent="motifs"]
+volume_db = -80.0
+bus = "Motif"

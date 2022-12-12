@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ASHESTOASHES-SEWERS.mp3-27947ec67cf9293c436a11d0bc905541.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/ASHESTOASHES-SEWERS.mp3"
+dest_files=[ "res://.import/ASHESTOASHES-SEWERS.mp3-27947ec67cf9293c436a11d0bc905541.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

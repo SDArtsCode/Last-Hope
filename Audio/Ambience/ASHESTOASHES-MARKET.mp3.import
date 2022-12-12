@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ASHESTOASHES-MARKET.mp3-156272e4f4b00621c66f4a8a744875ab.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/ASHESTOASHES-MARKET.mp3"
+dest_files=[ "res://.import/ASHESTOASHES-MARKET.mp3-156272e4f4b00621c66f4a8a744875ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

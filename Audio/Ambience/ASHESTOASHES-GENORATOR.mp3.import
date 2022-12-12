@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ASHESTOASHES-GENORATOR.mp3-a99950d3d0f67f38a0432f00d3916ccb.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/ASHESTOASHES-GENORATOR.mp3"
+dest_files=[ "res://.import/ASHESTOASHES-GENORATOR.mp3-a99950d3d0f67f38a0432f00d3916ccb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

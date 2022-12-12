@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ASHESTOASHES-RESIDENTIAL1.mp3-b8a5614326d5dbff9083fb96025cb01c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/ASHESTOASHES-RESIDENTIAL1.mp3"
+dest_files=[ "res://.import/ASHESTOASHES-RESIDENTIAL1.mp3-b8a5614326d5dbff9083fb96025cb01c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

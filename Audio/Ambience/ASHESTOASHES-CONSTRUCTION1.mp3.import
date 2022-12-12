@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ASHESTOASHES-CONSTRUCTION1.mp3-1f9068d394fba8082b419177b7078b25.mp3str"
+
+[deps]
+
+source_file="res://Audio/Ambience/ASHESTOASHES-CONSTRUCTION1.mp3"
+dest_files=[ "res://.import/ASHESTOASHES-CONSTRUCTION1.mp3-1f9068d394fba8082b419177b7078b25.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
