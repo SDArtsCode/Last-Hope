@@ -3,7 +3,7 @@ extends Node
 var scenes_in_game : Dictionary = {
 	"1" : preload("res://Scenes/Levels/1.tscn"),
 	"2" : preload("res://Scenes/Levels/2.tscn"),
-	"3" : preload("res://Scenes/Levels/3.tscn")
+	#"3" : preload("res://Scenes/Levels/3.tscn")
 }
 
 var cur_scene_name : String = "main_menu"

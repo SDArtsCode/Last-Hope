@@ -18,3 +18,7 @@ layer = -5
 position = Vector2( -50, -33 )
 
 [node name="ScreenShaders" parent="." instance=ExtResource( 4 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.2, 0.2 )

@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/log.gd" type="Script" id=2]
 
-
 [sub_resource type="DynamicFontData" id=3]
 antialiased = false
 font_path = "res://Art/Fonts/PressStart2P-Regular.ttf"
