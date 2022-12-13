@@ -14,6 +14,7 @@ _data = [ Vector2( 0, 0 ), 0.0, -0.161419, 0, 0, Vector2( 1, 0.7 ), 0.575494, 0.
 colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.137255 )
 
 [node name="Bullet" type="KinematicBody2D"]
+scale = Vector2( 0.2, 0.2 )
 z_index = 20
 z_as_relative = false
 collision_layer = 0

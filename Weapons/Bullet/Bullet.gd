@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var direction = Vector2()
-var speed := 40000
+var speed := 1
 var damage := 20
 var initial_position = position
 
