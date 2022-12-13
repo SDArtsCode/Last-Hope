@@ -71,6 +71,7 @@ points = PoolVector2Array( 0, 0, 12, 0, 12, 12, 0, 12 )
 3/z_index = 0
 
 [node name="Tilemap" type="TileMap"]
+z_index = -4
 tile_set = SubResource( 1 )
 cell_size = Vector2( 12, 12 )
 format = 1

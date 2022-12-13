@@ -97,6 +97,9 @@ const ITEM_PRELOAD = preload("res://Scenes/Item.tscn")
 const BULLET_PRELOAD = preload("res://Weapons/Bullet/Bullet.tscn")
 
 var timer = 0.0
+
+var last_door : int = -1
+
 func _process(delta):
 	timer += delta
 	if timer >= 1.0:
