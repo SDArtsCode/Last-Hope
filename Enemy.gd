@@ -59,3 +59,6 @@ func walking():
 func jumping(var force):
 	#pick platform or 
 	pass
+
+func get_jump_vector():
+	pass
