@@ -113,7 +113,7 @@ func get_input():
 func _physics_process(delta: float) -> void:
 	
 	if is_instance_valid(Global.camera):
-		Global.camera.position = position 
+		Global.camera.global_position = global_position 
 	
 	timer += delta
 	get_input()

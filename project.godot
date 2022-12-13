@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Lasthope"
-run/main_scene="res://Scenes/TestLevels/Main.tscn"
+run/main_scene="res://Scenes/scene_controller.tscn"
 config/icon="res://icon.png"
 
 [autoload]

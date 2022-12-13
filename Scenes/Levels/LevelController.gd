@@ -12,4 +12,5 @@ func _ready():
 		for door in $Doors.get_children():
 			if door.door_index == Global.last_door:
 				get_node("Player").global_position = door.global_position + door.relative_spawn
+				get_node("Camera2D").global_position = get_node("Player").global_position
 				break
