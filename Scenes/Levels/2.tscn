@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Tilemap/Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/ScreenShaders.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/RoomTrigger.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Levels/LevelController.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=7]
 
 [node name="2" type="Node2D"]
@@ -26,13 +26,13 @@ position = Vector2( 0, -13 )
 [node name="Doors" type="Node" parent="."]
 
 [node name="1" parent="Doors" instance=ExtResource( 5 )]
-position = Vector2( -201, 72 )
+position = Vector2( -201, 48 )
 room_index = 1
 door_index = 2
 relative_spawn = Vector2( 20, 0 )
 
 [node name="2" parent="Doors" instance=ExtResource( 5 )]
-position = Vector2( 202, 72 )
+position = Vector2( 202, 50 )
 room_index = 3
 door_index = 1
 relative_spawn = Vector2( -20, 0 )

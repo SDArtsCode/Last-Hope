@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/MusicController.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MusicController.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Ambience/ASHESTOASHES-SEWERS.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Audio/Ambience/ASHESTOASHES-GENORATOR.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Audio/Ambience/ASHESTOASHES-RESIDENTIAL1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Audio/Ambience/ASHESTOASHES-CONSTRUCTION1.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Audio/Ambience/ASHESTOASHES-MARKET.mp3" type="AudioStream" id=6]
+
 
 [node name="MusicController" type="Node"]
 script = ExtResource( 1 )

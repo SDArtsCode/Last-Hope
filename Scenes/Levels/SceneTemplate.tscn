@@ -1,0 +1,35 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Tilemap/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ScreenShaders.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tilemap/Tilemap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/RoomTrigger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Overlay.gd" type="Script" id=9]
+
+[node name="SceneTemplate" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Overlay" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="UI" parent="Overlay" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Background" parent="Overlay" instance=ExtResource( 2 )]
+
+[node name="ScreenShaders" parent="Overlay" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Tilemap" parent="." instance=ExtResource( 5 )]
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="RoomTrigger" parent="Doors" instance=ExtResource( 7 )]
+
+[node name="Camera2D" parent="." instance=ExtResource( 8 )]

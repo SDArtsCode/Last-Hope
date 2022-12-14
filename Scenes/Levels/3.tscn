@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Tilemap/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,9 +7,27 @@
 [ext_resource path="res://Scenes/RoomTrigger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Levels/LevelController.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=8]
 [ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/ScreenShaders.tscn" type="PackedScene" id=10]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+export (int) var room_index = 0
+export (int) var door_index = 0
+export (Vector2) var relative_spawn = Vector2()
+
+func _on_RoomTrigger_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		Global.last_door = door_index
+		get_tree().get_current_scene().switch_scene(room_index) # use scene_controller
+
+
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 36, 11 )
 
 [node name="3" type="Node2D"]
 script = ExtResource( 8 )
@@ -23,6 +41,7 @@ position = Vector2( -41, -22 )
 [node name="UI" parent="." instance=ExtResource( 6 )]
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
+visible = true
 
 [node name="Tilemap" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3, 0 )
@@ -31,9 +50,6 @@ tile_data = PoolIntArray( -1769481, 0, 0, -1769480, 0, 0, -1769479, 0, 0, -17694
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -80, 62 )
-
-[node name="AnimatedSprite" parent="Player/Player" index="9"]
-frame = 1
 
 [node name="Platform2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 14, 37 )
@@ -45,16 +61,32 @@ z_index = -1
 
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
 limit_top = -335
-smoothing_enabled = false
 
 [node name="Doors" type="Node" parent="."]
 
 [node name="1" parent="Doors" instance=ExtResource( 5 )]
-position = Vector2( -200, 72 )
+position = Vector2( -208, 56 )
 room_index = 2
 door_index = 1
 relative_spawn = Vector2( 20, 0 )
 
+[node name="2" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 198, 59 )
+room_index = 4
+door_index = 4
+relative_spawn = Vector2( -20, 0 )
+
+[node name="3" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -8, 112 )
+script = SubResource( 1 )
+room_index = 5
+door_index = 5
+
+[node name="CollisionShape2D" parent="Doors/3" index="0"]
+position = Vector2( 4, 11 )
+shape = SubResource( 2 )
+
 [node name="ScreenShaders" parent="." instance=ExtResource( 10 )]
 
 [editable path="Player"]
+[editable path="Doors/3"]
