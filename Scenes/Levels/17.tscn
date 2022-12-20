@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Tilemap/Tilemap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tilemap/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RoomTrigger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ScreenShaders.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Overlay.gd" type="Script" id=9]
+
+[node name="17" type="Node2D"]
+
+[node name="SceneTemplate" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Overlay" type="Node" parent="SceneTemplate"]
+script = ExtResource( 9 )
+
+[node name="UI" parent="SceneTemplate/Overlay" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Background" parent="SceneTemplate/Overlay" instance=ExtResource( 2 )]
+
+[node name="ScreenShaders" parent="SceneTemplate/Overlay" instance=ExtResource( 5 )]
+visible = false
+
+[node name="Tilemap" parent="SceneTemplate" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -2883572, 0, 0, -2818036, 0, 0, -2752500, 0, 0, -2686964, 0, 0, -2621428, 0, 0, -2555892, 0, 0, -2490356, 0, 0, -2424820, 0, 0, -2359284, 0, 0, -2293748, 0, 0, -2228212, 0, 0, -2162676, 0, 0, -2097140, 0, 0, -2031604, 0, 0, -1966068, 0, 0, -1900532, 0, 0, -1834996, 0, 0, -1834995, 0, 0, -1834994, 0, 0, -1834993, 0, 0, -1769460, 1, 0, -1769459, 1, 0, -1769458, 1, 0, -1769457, 1, 0, -1703924, 1, 0, -1703923, 1, 0, -1703922, 1, 0, -1703921, 1, 0, -1638388, 1, 0, -1638387, 1, 0, -1638386, 1, 0, -1638385, 1, 0, -1572852, 1, 0, -1572851, 1, 0, -1572850, 1, 0, -1572849, 1, 0, -1507316, 1, 0, -1507315, 1, 0, -1507314, 1, 0, -1507313, 1, 0, -1441780, 0, 0, -1441779, 0, 0, -1441778, 0, 0, -1441777, 0, 0, -1376244, 0, 0, -1310708, 0, 0, -1245172, 0, 0, -1179636, 0, 0, -1114100, 0, 0, -1048564, 0, 0, -983028, 0, 0, -917492, 0, 0, -851956, 0, 0, -786420, 0, 0, -720884, 0, 0, -655348, 0, 0, -589812, 0, 0, -524276, 0, 0, -458740, 0, 0, -393204, 0, 0, -327668, 0, 0, -262132, 0, 0, -196596, 0, 0, -131060, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 327668, 0, 0, 327669, 0, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 327682, 0, 0, 327692, 0, 0, 393219, 0, 0, 393228, 0, 0, 458756, 0, 0, 458764, 0, 0, 524293, 0, 0, 524300, 0, 0, 589830, 0, 0, 589836, 0, 0, 655367, 0, 0, 655372, 0, 0, 720904, 0, 0, 720908, 0, 0, 786441, 0, 0, 786444, 0, 0, 851978, 0, 0, 851980, 0, 0, 917515, 0, 0, 917516, 0, 0, 983052, 0, 0 )
+
+[node name="Player" parent="SceneTemplate" instance=ExtResource( 7 )]
+
+[node name="Doors" type="Node" parent="SceneTemplate"]
+
+[node name="RoomTrigger" parent="SceneTemplate/Doors" instance=ExtResource( 3 )]
+
+[node name="Camera2D" parent="SceneTemplate" instance=ExtResource( 6 )]
+limit_left = -299
+limit_top = -522
